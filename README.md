@@ -1,0 +1,1 @@
+# informatorio_2022_django_ari
