@@ -18,8 +18,10 @@ def fecha_hora_actual(request):
 
 def lista_noticias(request):
     '''Vista de prueba c/ cont. dinam. de bd'''
-    news = Noticia.objects.all()
+    news = Noticia.objects.all().order_by('published_date')
     return render(request, 'noticia_list.html', {'news':news})
+
+
 
 
 
