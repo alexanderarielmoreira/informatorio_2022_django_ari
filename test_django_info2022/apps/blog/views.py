@@ -3,8 +3,11 @@ from django.http import HttpResponse
 from .models import Noticia
 import datetime
 
+from django.views.generic import DetailView, ListView
 
 # Create your views here.
+
+# Vistas basadas en funciones
 
 def index(request):
     '''Vista de prueba''' 
@@ -18,8 +21,32 @@ def fecha_hora_actual(request):
 
 def lista_noticias(request):
     '''Vista de prueba c/ cont. dinam. de bd'''
-    news = Noticia.objects.all().order_by('published_date')
+    news = Noticia.objects.all()
     return render(request, 'noticia_list.html', {'news':news})
+
+# Vistas basadas en clases
+
+'''
+class DetalleNoticia(DetailView):
+    model = Noticia
+    template_name = 'noticia_list.html'
+'''
+class ListaNoticia(ListView):
+    model = Noticia
+    template_name = 'noticia_list.html'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
