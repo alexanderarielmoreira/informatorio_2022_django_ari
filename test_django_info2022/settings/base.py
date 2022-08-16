@@ -50,12 +50,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'test_django_info2022.urls'
+ROOT_URLCONF = 'test_django_info2022.urls' 
 
-TEMPLATES = [
+TEMPLATES = [ 
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(BASE_DIR), 'templates')],
+        #'DIRS': [os.path.join(os.path.dirname(BASE_DIR), 'templates')], NO LEVANTA SERVER
+        #'DIRS': ['templates/'], NO LEVANTA SERVER
+        'DIRS': [BASE_DIR / 'templates'], # C/ esta funciona;  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

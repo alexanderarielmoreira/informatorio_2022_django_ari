@@ -18,9 +18,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from test_django_info2022 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('blog/', include('test_django_info2022.apps.blog.urls')),   
+    path('blog/', include('test_django_info2022.apps.blog.urls')), 
+    path('hora/', views.saludo, name="hora"),
+    path('hora2/<int:horas>', views.saludo2, name="hora2"),      
 ]
 

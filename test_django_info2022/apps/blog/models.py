@@ -18,3 +18,5 @@ class Noticia(models.Model):
         return self.title
 
 
+
+
