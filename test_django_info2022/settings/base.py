@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'test_django_info2022.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bd_test_django_info2022',
-        'USER': 'root',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'test_django2022',
+        'USER': 'postgres',
         'PASSWORD': 'Arameo347',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432', 
     } 
 }
 
