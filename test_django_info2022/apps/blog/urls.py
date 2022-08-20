@@ -7,5 +7,6 @@ urlpatterns = [
     path('time/', views.fecha_hora_actual, name='time'), # http://127.0.0.1:8000/blog/time/ 
     path('noticia_list.html', views.lista_noticias, name='noticia'), # (vista basada en funciones) http://127.0.0.1:8000/blog/noticia_list.html 
     path('listar/', views.ListaNoticia.as_view()), # (vista basada en clases) http://127.0.0.1:8000/blog/listar/  
+    path('vista/', views.vista_noticias, name='vista_de_noticias'), #http://127.0.0.1:8000/blog/vista 
 ]
 

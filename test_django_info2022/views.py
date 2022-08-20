@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
+from test_django_info2022.apps.blog.models import Noticia
 
 import datetime
 
-from test_django_info2022.apps.blog.models import Noticia 
 
 def saludo(request):
     now = datetime.datetime.now()
@@ -31,4 +31,13 @@ def saludo2(request,horas):
 
     #return HttpResponse(template.render(context, request)) S/render 
     return render(request, 'saludo2.html', context) # c/ render 
+
+
+# Vista p/ mostrar datos del modelo en templates; 
+# Requiere: a) contexto; b) archivo 'html'; c) request;
+# 1 - Creamos un queryset;
+# 2 - 
+def vista_test(request):
+    noticias = Noticia.objects.all() 
+    return render(request, 'vista_test.html', {'noticias':noticias})  
 

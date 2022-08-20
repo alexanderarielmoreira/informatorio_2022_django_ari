@@ -5,20 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Noticias</title>
+    <title>Noticias</title>
 </head>
 <body>
-    <span><h1>Test: Lista de Posteos</h1></span>
-
-    <div>
-        <h1><a href="/">Ejemplo</a></h1> 
-    </div>
+    <span><h1>LISTA DE NOTICIAS</h1></span>
     
-    {% for noticia in noticias %}
+    {% for noticia in noticias %} 
         <div>
-            <p> publicado: {{ noticia.published_date }}</p>
-            <h2><a href="">{{ noticia.title }}</a></h2>
+            <h2><a href="#">{{ noticia.title }}</a></h2>
             <p>{{ noticia.text|linebreaksbr }}</p>
+            <p> Publicado: {{ noticia.published_date | date:"d M Y"}}</p> 
         </div>
     {% endfor %}
 

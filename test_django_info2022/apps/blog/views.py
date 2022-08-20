@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import DetailView, ListView
 from .models import Noticia
 import datetime
-
-from django.views.generic import DetailView, ListView
 
 # Create your views here.
 
@@ -24,7 +23,12 @@ def lista_noticias(request):
     news = Noticia.objects.all()
     return render(request, 'noticia_list.html', {'news':news})
 
-# Vistas basadas en clases
+def vista_noticias(request): 
+    noticias = Noticia.objects.all()
+    return render(request, 'noticia_list.html', {'noticias':noticias})
+
+
+# Vistas basadas en clases 
 
 '''
 class DetalleNoticia(DetailView):

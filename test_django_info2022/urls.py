@@ -25,5 +25,6 @@ urlpatterns = [
     path('blog/', include('test_django_info2022.apps.blog.urls')), # Incluye todas las urls de 'blog'
     path('hora/', views.saludo, name="hora"), # url estática
     path('hora2/<int:horas>', views.saludo2, name="hora2"), # url dinámica (se le pasa un parámetro)
+    path('vista/', views.vista_test, name="vista_noticia"),
 ]
 
