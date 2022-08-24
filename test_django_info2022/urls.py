@@ -16,9 +16,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path, include
 from test_django_info2022 import views
+
+from test_django_info2022.settings import base
+from test_django_info2022.static import static 
+ 
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
@@ -26,5 +32,5 @@ urlpatterns = [
     path('hora/', views.saludo, name="hora"), # url estática
     path('hora2/<int:horas>', views.saludo2, name="hora2"), # url dinámica (se le pasa un parámetro)
     path('vista/', views.vista_test, name="vista_noticia"),
-]
+] + static(base.STATIC_URL, document_root=base.MEDIA_ROOT) 
 

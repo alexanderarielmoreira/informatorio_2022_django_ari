@@ -1,0 +1,1 @@
+web: gunicorn test_django_info2022.wsgi --log-file - 

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5rp%q7a@40n=eymeitm8vc8mun6r61x8(g+jnr**$!d46qf1=a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 ROOT_URLCONF = 'test_django_info2022.urls' 
@@ -76,6 +77,16 @@ WSGI_APPLICATION = 'test_django_info2022.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+import dj_database_url
+from decouple import config
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -85,7 +96,7 @@ DATABASES = {
         'HOST': '127.0.0.1', 
         'PORT': '5432', 
     } 
-}
+}'''
 
 
 # Password validation
@@ -136,4 +147,7 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
+
 
