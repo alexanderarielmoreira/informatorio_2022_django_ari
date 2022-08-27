@@ -34,3 +34,4 @@ urlpatterns = [
     path('vista/', views.vista_test, name="vista_noticia"),
 ] + static(base.STATIC_URL, document_root=base.MEDIA_ROOT) 
 
+
